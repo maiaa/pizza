@@ -48,7 +48,10 @@
 		opacity: 1;
 		text-shadow: none !important;
 		background-image: url(img/body-bg.jpg);
-		background-position: 0 0%;	    
+		background-position: 0 0%;
+		overflow: hidden;
+		height: 100%; 
+		max-height: 100%;   
 	}
 	body p,
 	body h1,
@@ -83,26 +86,17 @@
 
 	/* Geral */
 	#main-container {
-		width: 100%;
-		//overflow: scroll; /* Overflow should scroll */
-		left: 0px;
-		//-webkit-overflow-scrolling: touch; /* This gives us scrollbars. */
-		//position: fixed; /* This means we don't have to worry about overflow issues */
-		-webkit-transition: left 0.2s ease-in;
-		transition: left 0.2s ease-in;
-
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		height: 100%;
-		max-height: 100%;
-		overflow: hidden;
-
+	    width: 100%;
+	    height: 100%;
+	    overflow: hidden;
+	    display: absolute;
+	    left:0;
+	    top:0;
 	}	
 	#sub-container {
 		position: relative;
+		width: 100%;
+	    height: 100%;
 	}
 
 	/* Colors */
@@ -114,7 +108,7 @@
 	}		
 
 	/* Top Bar */
-	.navbar {	
+	.navbar ,.footer{	
 		position: fixed;
 		box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 
 		0px 4px 5px 0px rgba(0, 0, 0, 0.14), 
@@ -196,20 +190,31 @@
     	padding: 0 16px;		
 	}
 
+	/* Footer */
+	.footer{
+		top: auto;
+		bottom: 0; 
+		height: 5px;
+		overflow: hidden;
+		color: white;		
+	}
+
 
 	/* Page Content */
 	.content{
-		padding-top: 56px;
+		width: 100%;
+		top: 56px;
+		bottom: 5px;
 		box-sizing: border-box;
-    	height: 100%;
-    	min-height: 100%;
-    	max-height: 100%;
-    	position: relative;
-    	z-index: 1;	
+    	position: fixed;
     	color: #000;
     	background-color: #fff;
-    	overflow: hidden;
-  		overflow-y: auto;	
+	    overflow: hidden;
+	    overflow-y: scroll; 
+	    z-index: 1;		
+	}
+	.page{
+		position: relative;
 	}
 	.content .title{
 	    position: relative;
@@ -311,20 +316,41 @@
 				</div>						
 			</div>	
 		</div>
-		<ul class="overflow-menu rounded8">
+		<ul class="overflow-menu rounded8" style="display: none">
 			<li><a href="config.html"><i class="fa fa-cog"></i> Configurações</a></li>
 			<li><a href="#"><i class="fa fa-info-circle"></i> Info</a></li>
 			<li><a href="#"><i class="fa fa-wrench"></i> Atualizações</a></li>
 		</ul>		
 		<div class="content">	
-			<div class="innerContent">
+			<div class="page">
 				<div class="title">Toque no botão abaixo para montar a sua pizza!</div>
 				<div class="icone-home v8-theme">
 					<img src="img/icone_pizza_inicio.png" />
 					<a href="#" class="btn btn-white rounded4">MONTAR PIZZA</a>
 				</div>
-					
-			</div>		
+				<div>
+				<h1>Título</h1>	
+				<h2>Título</h2>	
+				<h3>Título</h3>	
+				<h4>Título</h4>	
+				<h5>Título</h5>	
+				<h6>Título</h6>	
+				<h1>Título</h1>	
+				<h1>Título</h1>	
+				<h1>Título</h1>	
+				<h1>Título</h1>
+				<h1>Título</h1>	
+				<h2>Título</h2>	
+				<h3>Título</h3>	
+				<h4>Título</h4>	
+				<h5>Título</h5>	
+				<h6>Título</h6>	
+				<h1>Título</h1>	
+				<h1>Título</h1>	
+				<h1>Título</h1>	
+				<h1>Título</h1>					
+				</div>
+			</div>
 		</div>
 		<div class="footer">
 		</div>
