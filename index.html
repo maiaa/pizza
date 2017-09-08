@@ -47,11 +47,9 @@
 		font-size: 16px;
 		opacity: 1;
 		text-shadow: none !important;
-		background-image: url(img/body-bg.jpg);
-		background-position: 0 0%;
 		overflow: hidden;
 		height: 100%; 
-		max-height: 100%;   
+		max-height: 100%;
 	}
 	body p,
 	body h1,
@@ -175,7 +173,6 @@
 	    align-items: center;
 	    -webkit-transform: translate3d(0, 0, 0);
 	    transform: translate3d(0, 0, 0);
-	    float: right;
 	}
 	.navbar a.open-menu{
 		line-height: 56px;
@@ -194,7 +191,7 @@
 	.footer{
 		top: auto;
 		bottom: 0; 
-		height: 5px;
+		height: 15px;
 		overflow: hidden;
 		color: white;		
 	}
@@ -211,10 +208,14 @@
     	background-color: #fff;
 	    overflow: hidden;
 	    overflow-y: scroll; 
-	    z-index: 1;		
+	    z-index: 1;	
+	    background-color: #f9c158;
+		background-image: url(img/body-bg.jpg);
+		background-position: 0 0%;
 	}
 	.page{
 		position: relative;
+		margin:15px
 	}
 	.content .title{
 	    position: relative;
@@ -224,11 +225,13 @@
 	    //text-overflow: ellipsis;
 	    font-size: 14px;
 	    line-height: 1;
-	    margin: 16px 16px 16px;
+	    margin: 16px 0px 16px;
 	    padding-top: 16px;
 	    line-height: 16px;
 	    font-weight: 500;
-	    color: rgba(0, 0, 0, 0.54);		
+	    color: rgba(0, 0, 0, 0.54);	
+	    background: #fff;
+	    padding:15px;	
 	}	
 
 	/* Custom */
@@ -244,18 +247,23 @@
 	}
 	.icone-home{
 		padding: 16px 0;
-		text-align: center
+		text-align: center;
+		height: 100%;
+		background: rgba(0,0,0,.12);
 	}
 	.icone-home img, img{
 		max-width: 50%;
 		height: auto;
 		vertical-align: middle;
   		border: 0;
+  		background-color: #f9aa16;
+  		border-radius: 5%;
+  		padding:5%;
 	}
 	a.btn{
 		display: block;
 		margin: 16px 1em;
-		padding: 8px;
+		padding: 12px;
 		text-align: center;
 		font-size: 1em;
 		font-weight: 700;
@@ -312,7 +320,7 @@
 			<div class="navbar-inner">
 				<div class="label"><i class="fa fa-cutlery"></i> Pizza IFSC</div>
 				<div class="right">
-					<a href="#" class="open-menu"><i class="fa fa-bars"></i></a>
+					<a href="#" class="open-menu"><i class="fa fa-ellipsis-v"></i></a>
 				</div>						
 			</div>	
 		</div>
@@ -323,36 +331,14 @@
 		</ul>		
 		<div class="content">	
 			<div class="page">
-				<div class="title">Toque no botão abaixo para montar a sua pizza!</div>
-				<div class="icone-home v8-theme">
+				<div class="title rounded4">Toque no botão abaixo para montar a sua pizza! <i class="fa fa-hand-o-down"></i></div>
+				<div class="icone-home rounded4">
 					<img src="img/icone_pizza_inicio.png" />
-					<a href="#" class="btn btn-white rounded4">MONTAR PIZZA</a>
-				</div>
-				<div>
-				<h1>Título</h1>	
-				<h2>Título</h2>	
-				<h3>Título</h3>	
-				<h4>Título</h4>	
-				<h5>Título</h5>	
-				<h6>Título</h6>	
-				<h1>Título</h1>	
-				<h1>Título</h1>	
-				<h1>Título</h1>	
-				<h1>Título</h1>
-				<h1>Título</h1>	
-				<h2>Título</h2>	
-				<h3>Título</h3>	
-				<h4>Título</h4>	
-				<h5>Título</h5>	
-				<h6>Título</h6>	
-				<h1>Título</h1>	
-				<h1>Título</h1>	
-				<h1>Título</h1>	
-				<h1>Título</h1>					
+					<a href="#" class="btn btn-white rounded4">MONTAR PIZZA <i class="fa fa-hand-o-right"></i></a>
 				</div>
 			</div>
 		</div>
-		<div class="footer">
+		<div class="footer v8-theme">
 		</div>
 	</div>	
 </div>
