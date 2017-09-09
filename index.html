@@ -4,8 +4,10 @@
 <meta charset="utf-8" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/animations.css">
 	<title></title>
-	<script src="js/jquery-3.2.1.min"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/functions.js"></script>
 
 <style type="text/css">
 	@font-face {
@@ -213,9 +215,16 @@
 		background-image: url(img/body-bg.jpg);
 		background-position: 0 0%;
 	}
+	.role{position: relative;height:100%;}
 	.page{
 		position: relative;
-		margin:15px
+		margin:0px;
+		float: left;
+		height: 100%;
+		overflow: hidden;
+		//visibility: hidden;
+		overflow-y: scroll;	
+		//background: green;	
 	}
 	.content .title{
 	    position: relative;
@@ -248,7 +257,6 @@
 	.icone-home{
 		padding: 16px 0;
 		text-align: center;
-		height: 100%;
 		background: rgba(0,0,0,.12);
 	}
 	.icone-home img, img{
@@ -309,6 +317,11 @@
 		width: 26px;
 	}
 
+	.page-active {
+  		visibility: visible;
+  		z-index: 1;
+	}
+
 </style>
 
 </head>
@@ -329,17 +342,56 @@
 			<li><a href="#"><i class="fa fa-info-circle"></i> Info</a></li>
 			<li><a href="#"><i class="fa fa-wrench"></i> Atualizações</a></li>
 		</ul>		
-		<div class="content">	
-			<div class="page">
+		<div class="content">
+			<div class="role">	
+			<div class="page" id="page-1">
 				<div class="title rounded4">Toque no botão abaixo para montar a sua pizza! <i class="fa fa-hand-o-down"></i></div>
 				<div class="icone-home rounded4">
 					<img src="img/icone_pizza_inicio.png" />
-					<a href="#" class="btn btn-white rounded4">MONTAR PIZZA <i class="fa fa-hand-o-right"></i></a>
+					<a role='transition' href="to-left" class="btn btn-white rounded4">MONTAR PIZZA <i class="fa fa-hand-o-right"></i></a>
 				</div>
 				<a href="#" class="btn v8-theme rounded4">CARDÁPIO <i class="fa fa-map-o"></i></a>
 				<div class="title rounded4"><h5><i class="fa fa-check"></i> <b>Status:</b> Aberto. </h5>
 				<h5><i class="fa fa-check"></i> <b>Servidor: </b> OK! Aguardando pedido...</h5> </div>
+				<h5>Teste</h5>
+				<h5>Teste</h5>
+				<h5>Teste</h5>
+				<h5>Teste</h5>
+				<h5>Teste</h5>
+				<h5>Teste</h5>				
 			</div>
+			<div class="page" id="page-2">
+				<div class="title rounded4">Página 2! <i class="fa fa-hand-o-down"></i></div>
+				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
+				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>							
+			</div>
+			<div class="page" id="page-3">
+				<h1>Página 3</h1>
+				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
+				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>									
+			</div>
+			<div class="page" id="page-4">
+				<h1>Página 4</h1>
+				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>	
+				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>								
+			</div>
+			<div class="page" id="page-4">
+				<h1>Página 5</h1>
+				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>	
+				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>								
+			</div>
+			<div class="page" id="page-4">
+				<h1>Página 6</h1>
+				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>	
+				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>								
+			</div>
+			<div class="page" id="page-4">
+				<h1>Página 7</h1>
+				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>	
+				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>								
+			</div>													
+			</div>
+
 		</div>
 		<div class="footer v8-theme">
 		</div>
