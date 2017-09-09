@@ -52,15 +52,16 @@ $(function(){
 
 	links.on('click', function(e) {
 		e.preventDefault();
+		alert('clicou');
 		//var proxId = $( this ).attr('href');
 		//var proxPagina = $(proxId);
 		//console.log(proxPagina);			
 		//mudaPagina(proxPagina);
-		if( $( this ).attr('href') == 'to-left'){
-			moveRight();
-		}else if( $( this ).attr('href') == 'to-right'){
-			moveLeft();
-		}
+		// if( $( this ).attr('href') == 'to-left'){
+		// 	moveRight();
+		// }else if( $( this ).attr('href') == 'to-right'){
+		// 	moveLeft();
+		// }
 	});	
 });
 
