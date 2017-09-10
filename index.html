@@ -33,7 +33,7 @@
 	  src: local('Roboto Bold'), local('Roboto-Bold'), url('../fonts/Roboto-bold.woff') format('woff');
 	}
 	*{margin:0;padding:0;border:0;font-size:100%;}
-	a{text-decoration:none;color: #000;}
+	a{text-decoration:none;color: #000;cursor: pointer;}
 	ol, ul {list-style: none}
 	body {
 	    font-family: "RobotoDraft","Roboto", Calibri, Arial, sans-serif;
@@ -213,15 +213,13 @@
 		background-position: 0 0%;
 	}
 	.roler{
- height:100%;  
-  position:absolute;
-  margin:0px;
-  padding:0px;
-  
-  -webkit-transform: translate3d(0px,0px,0px);
-  transform: translate3d(0px,0px,0px);
-    
-  transition: all 0.66s ease; -webkit-transition: all 0.66s ease; 		
+		height:100%;  
+  		position:absolute;
+  		margin:0px;
+  		padding:0px;
+       -webkit-transform: translate3d(0px,0px,0px);
+  		transform: translate3d(0px,0px,0px);
+  		transition: all 0.33s ease; -webkit-transition: all 0.33s ease; 		
 	}
 	.page{
 		position: relative;
@@ -233,7 +231,10 @@
 		visibility: hidden;
 		overflow-y: scroll;	
 		//background: green;
-		background: pink;	
+		//background: pink;	
+	}
+	.page .in{
+		margin: 15px;
 	}
 	.content .title{
 	    position: relative;
@@ -302,20 +303,16 @@
 	a.btn-white:active{
 		background-color: #eee !important;		
 	}
-	.fill{
-		height: auto;
-		background: red;
-	}
 	ul.overflow-menu{
 		display: block;
-		position: absolute;
+		position: fixed;
 		width: auto;
 		padding: 16px;
 		background-color: #f8f8f8;
 		right:15px;
-		top:36px;
+		top:6px;
 		z-index: 600;
-		box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);		
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);	
 	}
 	ul.overflow-menu li a{
 		display: block;
@@ -341,27 +338,24 @@
 			<div class="navbar-inner">
 				<div class="label"><i class="fa fa-cutlery"></i> Pizza IFSC</div>
 				<div class="right">
-					<a href="#" onclick="mostraMenu();" class="open-menu"><i class="fa fa-ellipsis-v"></i></a>
+					<a href="#" id="open-menu-btn" class="open-menu"><i class="fa fa-ellipsis-v"></i></a>
 				</div>						
 			</div>	
 		</div>
-		<ul class="overflow-menu rounded8" style="display: none">
-			<li><a href="config.html"><i class="fa fa-cog"></i> Configurações</a></li>
+		<ul id="overflowMenu" class="overflow-menu rounded8" style="display: none">
+			<li><a href="#"><i class="fa fa-cog"></i> Configurações</a></li>
 			<li><a href="#"><i class="fa fa-info-circle"></i> Info</a></li>
 			<li><a href="#"><i class="fa fa-wrench"></i> Atualizações</a></li>
 		</ul>		
 		<div class="content">
 		<div id="roler" class="roler">	
 			<div class="page" id="page-1">
+			<div class="in">
 				<div class="title rounded4">Toque no botão abaixo para montar a sua pizza! <i class="fa fa-hand-o-down"></i></div>
 				<div class="icone-home rounded4">
 					<img src="img/icone_pizza_inicio.png" />
-					<a href="#" onclick="deslizar('next');" class="btn btn-white rounded4">MONTAR PIZZA <i class="fa fa-hand-o-right"></i></a>
+					<a href="#" onclick="mudaTela('next');" class="btn btn-white rounded4">MONTAR PIZZA <i class="fa fa-hand-o-right"></i></a>
 				</div>
-				<br>
-				<a href="#" onClick="mostraMenu();">google</a>
-				<br>
-				<a href="#" id="botao">google</a>
 				<a href="#" class="btn v8-theme rounded4">CARDÁPIO <i class="fa fa-map-o"></i></a>
 				<div class="title rounded4"><h5><i class="fa fa-check"></i> <b>Status:</b> Aberto. </h5>
 				<h5><i class="fa fa-check"></i> <b>Servidor: </b> OK! Aguardando pedido...</h5> </div>
@@ -372,21 +366,28 @@
 				<h1>Titulo 1</h1>
 				<h1>Titulo 1</h1>
 				<h1>Titulo 10</h1>
+			</div>	
 			</div>
 			<div class="page" id="page-2">
+			<div class="in">
 				<div class="title rounded4">Página 2! <i class="fa fa-hand-o-down"></i></div>
-				<a onclick="deslizar('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
-				<a onclick="deslizar('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>							
+				<a onclick="mudaTela('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
+				<a onclick="mudaTela('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>							
+			</div>
 			</div> 
 			<div class="page" id="page-3">
-				<h1>Página 3</h1>
-				<a onclick="deslizar('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
-				<a onclick="deslizar('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>										
+			<div class="in">
+				<div class="title rounded4">Página 3! <i class="fa fa-hand-o-down"></i></div>
+				<a onclick="mudaTela('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
+				<a onclick="mudaTela('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>
+			</div>			
 			</div>
 			<div class="page" id="page-4">
-				<h1>Página 4</h1>
-				<a onclick="deslizar('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
-				<a onclick="deslizar('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>									
+			<div class="in">
+				<div class="title rounded4">Página 4! <i class="fa fa-hand-o-down"></i></div>
+				<a onclick="mudaTela('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
+				<a onclick="mudaTela('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>
+			</div>		
 			</div><!--
 			<div class="page" id="page-4">
 				<h1>Página 5</h1>
@@ -412,12 +413,21 @@
 
 
 	<script type="text/javascript">
-    function mostraMenu() {
-    	alert("ola");
+    function openMenu(area = 'botao') {
+    	var menu = document.getElementById("overflowMenu");
+    	console.log(typeof area);
+    	document.getElementById("open-menu-btn").style.visibility = "hidden";
+    	menu.style.display = "block";
     }
+    function closeMenu(){
+    	var menu = document.getElementById("overflowMenu");
+    	menu.style.display = "none"; 
+    	document.getElementById("open-menu-btn").style.visibility = "visible";   	
+    }   
 
     function onDeviceReady() {
-        document.getElementById("botao").addEventListener("click", mostraMenu, false);
+        //document.getElementById("botao").addEventListener("click", mostraMenu, false);
+        document.getElementById("open-menu-btn").addEventListener("click", openMenu, false);
     }
 
     function init() {
@@ -438,7 +448,7 @@
 	  }
 	}
 
-	function deslizar(direcao){
+	function mudaTela(direcao){
 		if( direcao == 'prev'){
 			var target = atual - 1;
 		}
@@ -446,15 +456,15 @@
 			var target = atual + 1;
 		}
 		if( target == -1){
-			DoIt(total-1);
+			deslizar(total-1);
 		}else if(target == total){
-			DoIt(0);
+			deslizar(0);
 		}else{
-			DoIt(target);
+			deslizar(target);
 		}
 	}
 
-	function DoIt(target){
+	function deslizar(target){
 		var margin = viewportwidth * target;
 		var atualtarget = target;
 
@@ -496,6 +506,25 @@
     	addClass(pages[0], 'page-active');
     	//pages[0].style.visibility = "visible";
     	console.log(pages[0].style.visibility);
+
+
+	    var menu = document.getElementById('overflowMenu');
+	    document.addEventListener('click', function(event) {
+	        var seClicouDentro = menu.contains(event.target);
+	        var seClicouBotao = document.getElementById("open-menu-btn").contains(event.target);
+	        if (seClicouDentro) {
+	          console.log('Clicou dentro');
+	        }
+	        else {
+	        	if( seClicouBotao ){
+	        		console.log("Clicou fora, mas no botao");
+	        	}else{
+	        		closeMenu();
+	        		console.log('clicou fora de tudo');
+	        	}
+	          
+	        }
+	    });     	
 
 	});
 	</script>
