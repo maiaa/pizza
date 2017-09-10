@@ -21,5 +21,8 @@
     <preference name="android-minSdkVersion" value="18" />
     <preference name="android-targetSdkVersion" value="21" />
   </platform>
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    <access origin="*" />
 
 </widget>
