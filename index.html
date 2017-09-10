@@ -363,13 +363,10 @@
 			</div>	
 		</div>
 		<ul id="overflowMenu" class="overflow-menu rounded8" style="display: none">
-			<li><a href="#"><i class="fa fa-cog"></i> Configurações</a></li>
-			<li><a href="#"><i class="fa fa-info-circle"></i> Info</a></li>
-			<li><a href="#"><i class="fa fa-wrench"></i> Atualizações</a></li>
-		</ul>
-		<div id="pop-up" class="pop-up" style="display: none">
-			<div id="ajax-div" class="in"></div>
-		</div>		
+			<li><a class="btn-pop-up" href="#pop-config"><i class="fa fa-cog"></i> Configurações</a></li>
+			<li><a class="btn-pop-up" href="#pop-info"><i class="fa fa-info-circle"></i> Info</a></li>
+			<li><a class="btn-pop-up" href="#pop-update"><i class="fa fa-wrench"></i> Atualizações</a></li>
+		</ul>		
 		<div class="content">
 		<div id="roler" class="roler">	
 			<div class="page" id="page-1">
@@ -379,7 +376,7 @@
 					<img src="img/icone_pizza_inicio.png" />
 					<a href="#" onclick="mudaTela('next');" class="btn btn-white rounded4">MONTAR PIZZA <i class="fa fa-hand-o-right"></i></a>
 				</div>
-				<a id="btn-cardapio" href="#" class="btn v8-theme rounded4">CARDÁPIO <i class="fa fa-map-o"></i></a>
+				<a id="btn-cardapio" href="#pop-cardapio" class="btn v8-theme rounded4 btn-pop-up">CARDÁPIO <i class="fa fa-map-o"></i></a>
 				<div class="title rounded4"><h5><i class="fa fa-check"></i> <b>Status:</b> Aberto. </h5>
 				<h5><i class="fa fa-check"></i> <b>Servidor: </b> OK! Aguardando pedido...</h5> </div>
 				<h1>Titulo 1</h1>
@@ -411,26 +408,65 @@
 				<a onclick="mudaTela('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
 				<a onclick="mudaTela('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>
 			</div>		
-			</div><!--
-			<div class="page" id="page-4">
-				<h1>Página 5</h1>
-				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>	
-				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>								
-			</div>
-			<div class="page" id="page-4">
-				<h1>Página 6</h1>
-				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>	
-				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>								
-			</div>
-			<div class="page" id="page-4">
-				<h1>Página 7</h1>
-				<a role='transition' href="to-left" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>	
-				<a role='transition' href="to-right" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>								
-			</div> -->	
+			</div>	
 		</div>	
 		</div>
 		<div class="footer v8-theme">
 		</div>
+		<div id="pop-up" class="pop-up" style="display: none">
+			<div id="pop-cardapio" class="in" style="display: none">
+				<h3>Cardápio</h3>
+				<br>
+				<div class="grid">
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+				</div>
+				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
+			</div>
+			<div id="pop-config" class="in" style="display: none">
+				<h3>Configurações</h3>
+				<br>
+				<div class="grid">
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+				</div>
+				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
+			</div>
+			<div id="pop-info" class="in" style="display: none">
+				<h3>Info</h3>
+				<br>
+				<div class="grid">
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+				</div>
+				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
+			</div>
+			<div id="pop-update" class="in" style="display: none">
+				<h3>Atualizações</h3>
+				<br>
+				<div class="grid">
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+				</div>
+				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
+			</div>									
+		</div>		
 	</div>	
 </div>
 
@@ -468,10 +504,24 @@
 	        }
 	    });
 
-	    document.getElementById("btn-cardapio").addEventListener('click', function(event){
-	    	loadPage("cardapio.html");
-	    	document.getElementById("pop-up").style.display = "block";
-	    });       
+	    var popups = document.getElementsByClassName("btn-pop-up"); 
+	    console.log(popups.length);   
+		for (var i = 0; i < popups.length; i++) {
+		    popups[i].addEventListener('click', function(event){
+		    	var dest = this.getAttribute("href").replace('#','');
+		    	console.log(dest);
+		    	if( dest == 'close-popup'){
+		    	document.getElementById("pop-up").style.display = "none";
+		    	document.getElementById("pop-cardapio").style.display = "none";
+		    	document.getElementById("pop-config").style.display = "none";
+		    	document.getElementById("pop-info").style.display = "none";
+		    	document.getElementById("pop-update").style.display = "none";
+		    	}else{
+		    	document.getElementById("pop-up").style.display = "block";
+		    	document.getElementById(dest).style.display = "block";
+		    	}
+		    });
+		}	    
     }
 
     function init() {
@@ -553,20 +603,7 @@
 
 	});
 
-	function loadPage(url) {
-	    var xmlhttp = new XMLHttpRequest();
-
-	    // Callback function when XMLHttpRequest is ready
-	    xmlhttp.onreadystatechange=function(){
-	        if (xmlhttp.readyState === 4){
-	            if (xmlhttp.status === 200) {
-	                document.getElementById('ajax-div').innerHTML = xmlhttp.responseText;
-	            }
-	        }
-	    };
-	    xmlhttp.open("GET", url , true);
-	    xmlhttp.send();
-	}	
+	
 	onDeviceReady();
 	</script>
 
