@@ -413,9 +413,8 @@
 
 
 	<script type="text/javascript">
-    function openMenu(area = 'botao') {
+    function openMenu() {
     	var menu = document.getElementById("overflowMenu");
-    	console.log(typeof area);
     	document.getElementById("open-menu-btn").style.visibility = "hidden";
     	menu.style.display = "block";
     }
@@ -428,6 +427,23 @@
     function onDeviceReady() {
         //document.getElementById("botao").addEventListener("click", mostraMenu, false);
         document.getElementById("open-menu-btn").addEventListener("click", openMenu, false);
+	    var menu = document.getElementById('overflowMenu');
+	    document.addEventListener('click', function(event) {
+	        var seClicouDentro = menu.contains(event.target);
+	        var seClicouBotao = document.getElementById("open-menu-btn").contains(event.target);
+	        if (seClicouDentro) {
+	          console.log('Clicou dentro');
+	        }
+	        else {
+	        	if( seClicouBotao ){
+	        		console.log("Clicou fora, mas no botao");
+	        	}else{
+	        		closeMenu();
+	        		console.log('clicou fora de tudo');
+	        	}
+	          
+	        }
+	    });        
     }
 
     function init() {
@@ -505,26 +521,7 @@
     	document.getElementById("roler").style.width = role +"px";
     	addClass(pages[0], 'page-active');
     	//pages[0].style.visibility = "visible";
-    	console.log(pages[0].style.visibility);
-
-
-	    var menu = document.getElementById('overflowMenu');
-	    document.addEventListener('click', function(event) {
-	        var seClicouDentro = menu.contains(event.target);
-	        var seClicouBotao = document.getElementById("open-menu-btn").contains(event.target);
-	        if (seClicouDentro) {
-	          console.log('Clicou dentro');
-	        }
-	        else {
-	        	if( seClicouBotao ){
-	        		console.log("Clicou fora, mas no botao");
-	        	}else{
-	        		closeMenu();
-	        		console.log('clicou fora de tudo');
-	        	}
-	          
-	        }
-	    });     	
+    	console.log(pages[0].style.visibility);     	
 
 	});
 	</script>
