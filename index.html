@@ -327,6 +327,23 @@
   		visibility: visible;
 	}
 
+	.pop-up{
+		position: fixed;
+		background: rgba(0,0,0,0.6);
+		top:0;
+		left:0;
+		z-index: 700;
+		width: 100%;
+		height: 100%;
+	}
+	.pop-up .in{
+		margin: 20px;
+		background: #fff;
+		border-radius: 8px;
+		padding:20px;
+		height: 70%;
+	}
+
 </style>
 
 </head>
@@ -346,7 +363,10 @@
 			<li><a href="#"><i class="fa fa-cog"></i> Configurações</a></li>
 			<li><a href="#"><i class="fa fa-info-circle"></i> Info</a></li>
 			<li><a href="#"><i class="fa fa-wrench"></i> Atualizações</a></li>
-		</ul>		
+		</ul>
+		<div id="pop-up" class="pop-up" style="display: none">
+			<div id="ajax-div" class="in"></div>
+		</div>		
 		<div class="content">
 		<div id="roler" class="roler">	
 			<div class="page" id="page-1">
@@ -356,7 +376,7 @@
 					<img src="img/icone_pizza_inicio.png" />
 					<a href="#" onclick="mudaTela('next');" class="btn btn-white rounded4">MONTAR PIZZA <i class="fa fa-hand-o-right"></i></a>
 				</div>
-				<a href="#" class="btn v8-theme rounded4">CARDÁPIO <i class="fa fa-map-o"></i></a>
+				<a id="btn-cardapio" href="#" class="btn v8-theme rounded4">CARDÁPIO <i class="fa fa-map-o"></i></a>
 				<div class="title rounded4"><h5><i class="fa fa-check"></i> <b>Status:</b> Aberto. </h5>
 				<h5><i class="fa fa-check"></i> <b>Servidor: </b> OK! Aguardando pedido...</h5> </div>
 				<h1>Titulo 1</h1>
@@ -443,7 +463,12 @@
 	        	}
 	          
 	        }
-	    });        
+	    });
+
+	    document.getElementById("btn-cardapio").addEventListener('click', function(event){
+	    	sendReq('cardapio.html');
+	    	document.getElementById("pop-up").style.display = "block";
+	    });       
     }
 
     function init() {
@@ -521,9 +546,38 @@
     	document.getElementById("roler").style.width = role +"px";
     	addClass(pages[0], 'page-active');
     	//pages[0].style.visibility = "visible";
-    	console.log(pages[0].style.visibility);     	
+    	console.log(pages[0].style.visibility);     
+
 
 	});
+
+
+
+	function createRequestObject() {
+	    var obj;
+	    var browser = navigator.appName;
+	    if (browser == "Microsoft Internet Explorer") {
+	        obj = new ActiveXObject("Microsoft.XMLHTTP");
+	    } else {
+	        obj = new XMLHttpRequest();
+	    }
+	    return obj;
+	}
+
+	var http;
+	function sendReq(req) {   
+	    http = createRequestObject();
+	    http.open('get', req);
+	    http.onreadystatechange = handleResponse;
+	    http.send(null);
+	}
+
+	function handleResponse() {    
+	    if (http.readyState == 4) {
+	        var response = http.responseText;
+	        document.getElementById('ajax-div').innerHTML=response;
+	    }
+	}	
 	</script>
 
 
