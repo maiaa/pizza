@@ -340,11 +340,38 @@
 		height: 100%;
 	}
 	.pop-up .in{
-		margin: 20px;
+		margin: 10px;
 		background: #fff;
 		border-radius: 8px;
-		padding:20px;
-		height: 70%;
+		padding:10px;
+		height: 93%;
+	}
+	.grid{
+		overflow: hidden;
+		overflow-y: scroll;
+		height: 80%;	
+	}
+	.grid .block{
+		width: 100%;
+		background: #555;
+		height: 25px;
+		float: left;
+		box-sizing: border-box;
+		padding: 3px;
+		text-align: left;
+		font-size: 0.8em;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	    color: #fff;
+	    line-height: 20px;
+	    text-transform: uppercase;	
+	}
+	.grid .large{
+		width: 100% !important;
+		background: #eee !important;
+		color: #000;
+		border-bottom: 2px solid #000
 	}
 
 </style>
@@ -363,9 +390,8 @@
 			</div>	
 		</div>
 		<ul id="overflowMenu" class="overflow-menu rounded8" style="display: none">
+			<li><a class="btn-pop-up" href="#pop-cardapio"><i class="fa fa-map-o"></i> Cardápio</a></li>		
 			<li><a class="btn-pop-up" href="#pop-config"><i class="fa fa-cog"></i> Configurações</a></li>
-			<li><a class="btn-pop-up" href="#pop-info"><i class="fa fa-info-circle"></i> Info</a></li>
-			<li><a class="btn-pop-up" href="#pop-update"><i class="fa fa-wrench"></i> Atualizações</a></li>
 		</ul>		
 		<div class="content">
 		<div id="roler" class="roler">	
@@ -415,54 +441,74 @@
 		</div>
 		<div id="pop-up" class="pop-up" style="display: none">
 			<div id="pop-cardapio" class="in" style="display: none">
-				<h3>Cardápio</h3>
+				<h3>Cardápio <i class="fa fa-map-o"></i></h3>
 				<br>
 				<div class="grid">
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
+					<div class="block">1 - AMERICANA:</div>
+					<div class="block large">(Mussarela, bacon, ovo, milho e orégano)</div>
+					<div class="block">2 - ALHO E ÓLEO:</div>
+					<div class="block large">(Mussarela, alho e óleo e orégano)</div>
+					<div class="block">3 - BACON:</div>
+					<div class="block large">(Mussarela, bacon e orégano)</div>
+					<div class="block">4 - BAIANA:</div>
+					<div class="block large">(Mussarela, calabresa, pimenta, azeitona e orégano)</div>
+					<div class="block">6 - BRASILEIRA:</div>
+					<div class="block large">(Mussarela, calabresa, cebola e orégano)</div>
+					<div class="block">7 - BOLONHESA:</div>
+					<div class="block large">(Mussarela, carne moída ao sugo e orégano)</div>
+					<div class="block">8 - CAIPIRA:</div>
+					<div class="block large">(Mussarela, milho, bacon e orégano)</div>
+					<div class="block">9 - CALABRESA:</div>
+					<div class="block large">(Mussarela, calabresa e orégano)</div>	
+					<div class="block">10 - FRANGO:</div>
+					<div class="block large">(Mussarela, frango e orégano)</div>		
+					<div class="block">11 - HOT DOG:</div>
+					<div class="block large">(Mussarela, salsicha ao molho, milho, ervilha, batata palha e orégano)</div>
+					<div class="block">12 - INGLATERRA:</div>
+					<div class="block large">(Mussarela, milho, ervilha, tomate picado, palmito, salsicha e orégano)</div>								
 				</div>
 				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
 			</div>
 			<div id="pop-config" class="in" style="display: none">
-				<h3>Configurações</h3>
+				<h3>Configurações <i class="fa fa-cog"></i></h3>
 				<br>
 				<div class="grid">
+					<div class="block">Calabresa</div>
+					<div class="block">(CEBOLA, ALHO, PIMENTÃO)</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
-				</div>
-				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
-			</div>
-			<div id="pop-info" class="in" style="display: none">
-				<h3>Info</h3>
-				<br>
-				<div class="grid">
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
-				</div>
-				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
-			</div>
-			<div id="pop-update" class="in" style="display: none">
-				<h3>Atualizações</h3>
-				<br>
-				<div class="grid">
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
 					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>
+					<div class="block">item 1</div>														
 				</div>
 				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
 			</div>									
@@ -514,8 +560,8 @@
 		    	document.getElementById("pop-up").style.display = "none";
 		    	document.getElementById("pop-cardapio").style.display = "none";
 		    	document.getElementById("pop-config").style.display = "none";
-		    	document.getElementById("pop-info").style.display = "none";
-		    	document.getElementById("pop-update").style.display = "none";
+		    	//document.getElementById("pop-info").style.display = "none";
+		    	//document.getElementById("pop-update").style.display = "none";
 		    	}else{
 		    	document.getElementById("pop-up").style.display = "block";
 		    	document.getElementById(dest).style.display = "block";
