@@ -267,12 +267,12 @@
 		background: #fff !important;
 		color: #444 !important;
 	}
-	.icone-home{
+	.icone-home, .icone-steps{
 		padding: 16px 0;
 		text-align: center;
 		background: rgba(0,0,0,.12);
 	}
-	.icone-home img, img{
+	.icone-home img, .icone-steps img, img{
 		max-width: 50%;
 		height: auto;
 		vertical-align: middle;
@@ -281,6 +281,8 @@
   		border-radius: 5%;
   		padding:5%;
 	}
+	.icone-steps{ background: #f9aa16 }
+	.icone-steps img{ background: none; max-width: 90%;}
 	a.btn{
 		display: block;
 		margin: 16px 1em;
@@ -305,6 +307,10 @@
 	}
 	a.btn-white:active{
 		background-color: #eee !important;		
+	}
+	.navigation{text-align: center}
+	a.btn_inline{
+		display: inline-block !important; font-size: 2em !important;
 	}
 	ul.overflow-menu{
 		display: block;
@@ -373,7 +379,68 @@
 		color: #000;
 		border-bottom: 2px solid #000
 	}
+input[type=radio],input[type=checkbox]{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+    
+input[type=radio] ~ label:before,
+input[type=checkbox] ~ label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f1db";
+    letter-spacing: 10px;
+    //font-size: 1.2em;
+    color: #535353;
+    width: 1.4em;
+}
 
+input[type=radio]:checked ~ label:before,
+input[type=checkbox]:checked ~ label:before  {
+    content: "\f00c";
+    //font-size: 1.2em;
+    color: darkgreen;
+    letter-spacing: 5px;
+}
+input[type=checkbox] ~ label:before {        
+    content: "\f096";
+}
+input[type=checkbox]:checked ~ label:before {
+    content: "\f046";        
+    color: darkgreen;
+}
+input[type=radio]:focus ~ label:before,
+input[type=checkbox]:focus ~ label:before,
+input[type=radio]:focus ~ label,
+input[type=checkbox]:focus ~ label
+{                
+    color: green;
+}
+	.form_med div, .form_big div{ 
+		display: block;
+		margin: 6px 3em;
+		padding: 5px;
+		text-align: center;
+		font-size: 1em;
+		font-weight: 700;
+		//box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+		text-transform: uppercase;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	    white-space: nowrap;
+	    cursor: pointer;
+	    transition: background 0.4s;
+	    border: 2px solid #fff;
+	    border-radius: 22px
+	}
+	.form_med label {font-size: 1em !important}
+	.form_big label {font-size: 1.5em !important}
 </style>
 
 </head>
@@ -405,34 +472,67 @@
 				<a id="btn-cardapio" href="#pop-cardapio" class="btn v8-theme rounded4 btn-pop-up">CARDÁPIO <i class="fa fa-map-o"></i></a>
 				<div class="title rounded4"><h5><i class="fa fa-check"></i> <b>Status:</b> Aberto. </h5>
 				<h5><i class="fa fa-check"></i> <b>Servidor: </b> OK! Aguardando pedido...</h5> </div>
-				<h1>Titulo 1</h1>
-				<h1>Titulo 2</h1>
-				<h1>Titulo 1</h1>
-				<h1>Titulo 1</h1>
-				<h1>Titulo 1</h1>
-				<h1>Titulo 1</h1>
-				<h1>Titulo 10</h1>
 			</div>	
 			</div>
 			<div class="page" id="page-2">
 			<div class="in">
-				<div class="title rounded4">Página 2! <i class="fa fa-hand-o-down"></i></div>
-				<a onclick="mudaTela('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
-				<a onclick="mudaTela('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>							
+				<div class="title rounded4">Escolha o tamanho da pizza! <i class="fa fa-hand-o-down"></i></div>
+				<div class="icone-steps rounded4">
+					<img src="img/tamanhos-de-pizza.png" />
+					<div class="form_med">
+					  <div>
+					    <input id="question1" name="question" type="radio" />
+					    <label for="question1">Brotinho (1 sabor)</label>
+					  </div>
+					  <div>
+					    <input id="question2" name="question" type="radio" />
+					    <label for="question2">Média (2 sabores)</label>
+					  </div>
+					  <div>
+					    <input id="question3" name="question" type="radio" />
+					    <label for="question3">Grande (3 sabores)</label>
+					  </div>
+					  <div>
+					    <input id="question4" name="question" type="radio" />
+					    <label for="question4">Gigante (4 sabores)</label>
+					  </div>				  			
+					</div>					
+				</div>
+				<div class="navigation">
+				<a onclick="mudaTela('prev');" href="#" class="btn btn-white btn_inline rounded4"><i class="fa fa-hand-o-left"></i></a>	
+				<a onclick="mudaTela('next');" href="#" class="btn btn-white btn_inline rounded4"><i class="fa fa-hand-o-right"></i></a>					
+				</div>										
 			</div>
 			</div> 
 			<div class="page" id="page-3">
 			<div class="in">
-				<div class="title rounded4">Página 3! <i class="fa fa-hand-o-down"></i></div>
-				<a onclick="mudaTela('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
-				<a onclick="mudaTela('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>
+				<div class="title rounded4">Escolha os sabores da pizza! <i class="fa fa-hand-o-down"></i></div>
+				<div class="navigation">
+				<a onclick="mudaTela('prev');" href="#" class="btn btn-white btn_inline rounded4"><i class="fa fa-hand-o-left"></i></a>	
+				<a onclick="mudaTela('next');" href="#" class="btn btn-white btn_inline rounded4"><i class="fa fa-hand-o-right"></i></a>					
+				</div>
 			</div>			
 			</div>
 			<div class="page" id="page-4">
 			<div class="in">
-				<div class="title rounded4">Página 4! <i class="fa fa-hand-o-down"></i></div>
-				<a onclick="mudaTela('next');" href="#" class="btn btn-white rounded4">prox <i class="fa fa-hand-o-right"></i></a>
-				<a onclick="mudaTela('prev');" href="#" class="btn btn-white rounded4">prev <i class="fa fa-hand-o-right"></i></a>
+				<div class="title rounded4">Escolha a borda! <i class="fa fa-hand-o-down"></i></div>
+				<div class="icone-steps rounded4">
+					<img src="img/borda-pizza.jpg" />
+					<div class="form_med">
+					  <div>
+					    <input id="question1" name="question" type="radio" />
+					    <label for="question1">Com Borda</label>
+					  </div>
+					  <div>
+					    <input id="question2" name="question" type="radio" />
+					    <label for="question2">Sem Borda (catupiry)</label>
+					  </div>				  			
+					</div>					
+				</div>				
+				<div class="navigation">
+				<a onclick="mudaTela('prev');" href="#" class="btn btn-white btn_inline rounded4"><i class="fa fa-hand-o-left"></i></a>	
+				<a onclick="mudaTela('next');" href="#" class="btn btn-white btn_inline rounded4"><i class="fa fa-hand-o-right"></i></a>					
+				</div>
 			</div>		
 			</div>	
 		</div>	
@@ -471,43 +571,23 @@
 			<div id="pop-config" class="in" style="display: none">
 				<h3>Configurações <i class="fa fa-cog"></i></h3>
 				<br>
-				<div class="grid">
-					<div class="block">Calabresa</div>
-					<div class="block">(CEBOLA, ALHO, PIMENTÃO)</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>
-					<div class="block">item 1</div>														
+				<div class="grid form_med">
+				  <div>
+				    <input id="question1" name="question" type="radio" />
+				    <label for="question1">Brotinho</label>
+				  </div>
+				  <div>
+				    <input id="question2" name="question" type="radio" />
+				    <label for="question2">Média</label>
+				  </div>
+				  <div>
+				    <input id="question3" name="question" type="radio" />
+				    <label for="question3">Grande</label>
+				  </div>
+				  <div>
+				    <input id="question4" name="question" type="radio" />
+				    <label for="question4">Gigante</label>
+				  </div>				  			
 				</div>
 				<a href="#close-popup" class="btn btn-white btn-pop-up">FECHAR <i class="fa fa-close"></i></a>				
 			</div>									
